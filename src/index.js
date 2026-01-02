@@ -1,6 +1,17 @@
 import "./styles.css";
-import Celsius from "./imgs/temperature-celsius.svg";
-import Fahrenheit from "./imgs/temperature-fahrenheit.svg";
+let Celsius, Fahrenheit;
+
+const loadFormat = (imgName, img) => {
+    import(
+        `./imgs/${imgName}.svg`
+    ).then((src) => {
+        img.src = src.default;
+    })
+}
+
+import("./imgs/temperature-fahrenheit.svg").then((res) => {
+    console.log(res);
+});
 import { default as getWeatherReport} from "./components/weatherReader.js";
 import { default as getFormattedReport } from "./components/weatherFormatter.js";
 import { default as updateWeatherComponent } from "./components/weatherComponent.js";
@@ -26,11 +37,11 @@ function getCity(e){
 function changeFormat(e){
     console.log("Hello")
     if(temperatureFormat == 0){
-        tempButtonImg.src = Fahrenheit;
+        loadFormat("temperature-fahrenheit", tempButtonImg);
         temperatureFormat = 1;
     }
     else{
-        tempButtonImg.src = Celsius;
+        loadFormat("temperature-celsius", tempButtonImg);
         temperatureFormat = 0;
     }
 }
