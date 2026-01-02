@@ -1,0 +1,133 @@
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("./fonts/SpaceGrotesk-VariableFont_wght.ttf");
+}
+
+:root{
+    --font-color: #000;
+    --default-font: "Space Grotesk", 'Courier New', Courier, monospace;
+    --default-bg: url("./imgs/weather-bg.png");
+    --input-bg: #4638387a;
+    --section-bg: #fff;
+    --button-bg: transparent;
+    --output-bg: #bebdbd67;
+
+    --less-pad: 8px;
+    --pad: 16px;
+    --more-pad: 32px;
+
+    --less-margin: 8px;
+    --marg: 16px;
+    --more-marg: 32px;
+
+    --less-gap: 8px;
+    --gap: 16px;
+    --more-gap: 32px;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    color: var(--font-color);
+    font-family: var(--default-font);
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.2rem;
+}
+
+header,
+footer{
+    flex: 0;
+    padding: var(--more-pad);
+    background-color: var(--section-bg);
+    width: 100%;
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+footer{
+    text-align: center;
+}
+
+button{
+    border: 0;
+    outline: none;
+    background-color: var(--button-bg);
+    cursor: pointer;
+    width: 40px;
+}
+
+button img{
+    width: 100%;
+}
+
+main{
+    background-image: var(--default-bg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--more-gap);
+    padding: var(--more-pad);
+    align-items: center;
+}
+
+form{
+
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+
+}
+
+
+input{
+    background-color: transparent;
+    border: 2px solid rgb(116, 107, 107);
+    box-shadow: 5px 3px 5px rgb(70, 69, 69);
+    outline: none;
+    padding: var(--less-pad) var(--pad);
+    border-radius: 16px;
+}
+
+.output{
+    display: none;
+
+}
+
+.active{
+    display: grid;
+    gap: var(--less-gap);
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--output-bg);
+    padding: var(--more-pad);
+    border-radius: 16px;
+    box-shadow: 3px 3px 10px black;
+}
+
+.output .location{
+    grid-column: 1;
+}
+
+.output .temp{
+    grid-column: 2;
+    text-align: right;
+}
+
+.output p{
+    grid-column: 1 / 2;
+}
+
